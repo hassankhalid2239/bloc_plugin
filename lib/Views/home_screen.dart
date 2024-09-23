@@ -20,59 +20,60 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         actions: [
-          BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
-            return PopupMenuButton(
-              padding: EdgeInsets.zero,
-              tooltip: 'Light Theme',
-              shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              position: PopupMenuPosition.under,
-              color: Colors.white,
-              icon: const Icon(
-                Icons.more_vert_rounded,
+          BlocBuilder<CounterBloc, CounterState>(
+            builder: (context, state) {
+              return PopupMenuButton(
+                padding: EdgeInsets.zero,
+                tooltip: 'Light Theme',
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+                position: PopupMenuPosition.under,
                 color: Colors.white,
-              ),
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  value: ThemeMode.light,
-                  child: Text(
-                    'Light Theme',
-                    style: TextStyle(
-                      color: state.theme==ThemeMode.light
-                          ? Colors.redAccent
-                          : Colors.black,
+                icon: const Icon(
+                  Icons.more_vert_rounded,
+                  color: Colors.white,
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: ThemeMode.light,
+                    child: Text(
+                      'Light Theme',
+                      style: TextStyle(
+                        color: state.theme == ThemeMode.light
+                            ? Colors.redAccent
+                            : Colors.black,
+                      ),
                     ),
                   ),
-                ),
-                PopupMenuItem(
-                  value: ThemeMode.dark,
-                  child: Text(
-                    'Dark Theme',
-                    style: TextStyle(
-                      color: state.theme==ThemeMode.dark
-                          ? Colors.redAccent
-                          : Colors.black,
+                  PopupMenuItem(
+                    value: ThemeMode.dark,
+                    child: Text(
+                      'Dark Theme',
+                      style: TextStyle(
+                        color: state.theme == ThemeMode.dark
+                            ? Colors.redAccent
+                            : Colors.black,
+                      ),
                     ),
                   ),
-                ),
-                PopupMenuItem(
-                  value: ThemeMode.system,
-                  child: Text(
-                    'System',
-                    style: TextStyle(
-                      color: state.theme==ThemeMode.system
-                          ? Colors.redAccent
-                          : Colors.black,
+                  PopupMenuItem(
+                    value: ThemeMode.system,
+                    child: Text(
+                      'System',
+                      style: TextStyle(
+                        color: state.theme == ThemeMode.system
+                            ? Colors.redAccent
+                            : Colors.black,
+                      ),
                     ),
                   ),
-                ),
-              ],
-              onSelected: (value) {
-                print(value);
-                context.read<CounterBloc>().add(ThemeEvent(theme: value));
-              },
-            );
-          },)
+                ],
+                onSelected: (value) {
+                  context.read<CounterBloc>().add(ThemeEvent(theme: value));
+                },
+              );
+            },
+          )
         ],
       ),
       body: Center(
@@ -87,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                 child: ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                      const WidgetStatePropertyAll(Colors.redAccent),
+                          const WidgetStatePropertyAll(Colors.redAccent),
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)))),
                   onPressed: () {
@@ -114,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                 child: ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                      const WidgetStatePropertyAll(Colors.redAccent),
+                          const WidgetStatePropertyAll(Colors.redAccent),
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)))),
                   onPressed: () {

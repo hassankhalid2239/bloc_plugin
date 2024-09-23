@@ -9,7 +9,6 @@ class CounterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('build......');
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
@@ -23,14 +22,16 @@ class CounterScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
-              return Text(
-                state.counter.toString(),
-                style: const TextStyle(
-                  fontSize: 50,
-                ),
-              );
-            },)
+            BlocBuilder<CounterBloc, CounterState>(
+              builder: (context, state) {
+                return Text(
+                  state.counter.toString(),
+                  style: const TextStyle(
+                    fontSize: 50,
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),

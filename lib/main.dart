@@ -13,29 +13,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_)=> CounterBloc()),
-      ],
-      child:BlocBuilder<CounterBloc, CounterState>(
-        builder: (context, state) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Bloc Plugin',
-            themeMode: state.theme,
-            theme: ThemeData(
-              brightness: Brightness.light,
-              useMaterial3: true,
-            ),
-            darkTheme: ThemeData(
-              brightness: Brightness.dark,
-              useMaterial3: true,
-            ),
-            home: const HomeScreen(),
-          );
-        },
-      )
-    );
+        providers: [
+          BlocProvider(create: (_) => CounterBloc()),
+        ],
+        child: BlocBuilder<CounterBloc, CounterState>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Bloc Plugin',
+              themeMode: state.theme,
+              theme: ThemeData(
+                brightness: Brightness.light,
+                useMaterial3: true,
+              ),
+              darkTheme: ThemeData(
+                brightness: Brightness.dark,
+                useMaterial3: true,
+              ),
+              home: const HomeScreen(),
+            );
+          },
+        ));
   }
 }
