@@ -1,2 +1,2 @@
 # bloc_plugin
- State Management plugin Practice
+ State Management plugin Practice only states
